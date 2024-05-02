@@ -6,7 +6,7 @@ from django.core import serializers
 from .models import Application
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'index.html')
 
 def apps_view(request):
     # retrieve user information

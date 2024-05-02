@@ -11,7 +11,6 @@
 
 
 <script>
-    // apps_view script
     $(document).ready(function() {
         $('#apps-tab').on('click', function(e) {
             e.preventDefault();
@@ -21,7 +20,7 @@
                 url: 'http://127.0.0.1:8000/apps',  // URL to your Django view
                 type: 'GET',  // or 'POST' depending on your view
                 success: function(response) {
-                    //console.log(response.applications);
+                    console.log(response.applications);
                     $.each(JSON.parse(response.applications), function(_, obj){
                         $(tabId).append("<p>" + obj.fields.company_name + "</p>")
                     })
