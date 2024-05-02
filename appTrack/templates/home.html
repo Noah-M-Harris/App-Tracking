@@ -2,7 +2,8 @@
 {% block content %}
 <div class="container mt-4 bg-white-subtle">
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="apps-tab-pane" role="tabpanel" aria-labelledby="apps-tab" tabindex="0"></div>
+        <div class="tab-pane fade show active" id="apps-tab-pane" role="tabpanel" aria-labelledby="apps-tab" tabindex="0">Opportunities</div>
+        <div class="tab-pane fade" id="apps-tab-pane" role="tabpanel" aria-labelledby="apps-tab" tabindex="0"></div>
         <div class="tab-pane fade" id="oa-tab-pane" role="tabpanel" aria-labelledby="oa-tab" tabindex="0">OAS</div>
         <div class="tab-pane fade" id="next-tab-pane" role="tabpanel" aria-labelledby="next-tab" tabindex="0">NEXT STEPS</div>
     </div>
@@ -17,10 +18,10 @@
             //var tabId = $(this).attr('div');
             var tabId = $('#apps-tab-pane')
             $.ajax({
-                url: 'http://127.0.0.1:8000/message',  // URL to your Django view
+                url: 'http://127.0.0.1:8000/apps',  // URL to your Django view
                 type: 'GET',  // or 'POST' depending on your view
                 success: function(response) {
-                    console.log(tabId)
+                    console.log(response.applications)
                     $(tabId).html(response.message);
                 },
                 error: function(xhr, status, error) {
