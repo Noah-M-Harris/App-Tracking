@@ -21,8 +21,11 @@
                 url: 'http://127.0.0.1:8000/apps',  // URL to your Django view
                 type: 'GET',  // or 'POST' depending on your view
                 success: function(response) {
-                    console.log(response.applications)
-                    $(tabId).html(response.message);
+                    //console.log(response.applications);
+                    $.each(JSON.parse(response.applications), function(_, obj){
+                        $(tabId).append("<p>" + obj.fields.company_name + "</p>")
+                    })
+                    //$(tabId).html(response.message);
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);

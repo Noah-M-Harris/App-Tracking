@@ -10,5 +10,6 @@ def home(request):
 
 def apps_view(request):
     # retrieve user information
+    # we only want to re-render if we notice more applications 
     submitted_applications = serializers.serialize("json", Application.objects.all())
     return JsonResponse({'applications': submitted_applications, 'message': 'hello world'})
